@@ -1,0 +1,78 @@
+﻿@using CurrencyConverter.Models
+@model List<Currency>
+
+@{
+    ViewData["Title"] = "Currency Converter";
+}
+
+<div style="background-color:aquamarine; position: relative; padding-top: 20px; padding-bottom: 20px;">
+
+    <div class="text-center">
+        <img class="d-block mx-auto mb-3" src="@Url.Content(ViewBag.RandomImage)" alt="" width="150" height="150">
+        <h2>Currency Converter</h2>
+        <p class="lead">
+            Select the desired currency from which you want to convert, then select the one you want to convert into.
+            It works every once in a while, so good luck!
+        </p>
+    </div>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+
+    
+    <div class="d-flex justify-content-center">
+        <form method="post" asp-action="Convert" action="/Currency/Convert" class="text-center" style="margin-top: 20px;">
+            <div class="form-group">
+                <label>From:</label>
+                <select name="fromCurrency" class="form-control">
+                    @foreach (var currency in Model)
+                    {
+                        <option value="@currency.Code">@currency.Name (@currency.Code)</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>To:</label>
+                <select name="toCurrency" class="form-control">
+                    @foreach (var currency in Model)
+                    {
+                        <option value="@currency.Code">@currency.Name (@currency.Code)</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Amount:</label>
+                <input type="number" name="amount" step="0.01" class="form-control" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Convert</button>
+
+            @if (ViewBag.Result != null)
+            {
+                <div class="mt-4">
+                    <h3>@ViewBag.Result</h3>
+                </div>
+            }
+        </form>
+    </div>
+
+    <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+        <p class="mb-1">© 2024 Converter by Liza</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+
+    <iframe frameborder="0" allow="clipboard-write" style="border:none;position: fixed;top: 10px;right: 10px;width:300px;height:100px;" width="300" height="100" src="https://music.yandex.ru/iframe/track/126459937/31421647">
+        Слушайте <a href='https://music.yandex.ru/album/31421647/track/126459937'>Сколько стоят деньги?</a> —
+        <a href='https://music.yandex.ru/artist/3095130'>Хаски</a> на Яндекс Музыке
+    </iframe>
+</div>
+
+<script src="~/js/bootstrap.min.js"></script>
+
+

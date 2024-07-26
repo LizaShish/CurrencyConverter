@@ -1,0 +1,19 @@
+﻿body {
+    background: red;
+}
+
+/*Выровнять форму по центру*/
+.form-group{
+    margin-bottom: 15px;
+}
+
+/* Изменение цвета кнопки */
+.btn-primary {
+    background-color: #4CAF50; /* Зеленый цвет */
+    border-color: #4CAF50;
+}
+
+    .btn-primary:hover {
+        background-color: #45a049; /* Более темный зеленый при наведении */
+        border-color: #45a049;
+    }
