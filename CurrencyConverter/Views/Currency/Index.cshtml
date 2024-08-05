@@ -1,14 +1,18 @@
 ﻿@using CurrencyConverter.Models
 @model List<Currency>
 
+
 @{
     ViewData["Title"] = "Currency Converter";
 }
-
-<div style="background-color:aquamarine; position: relative; padding-top: 20px; padding-bottom: 20px;">
-
+<head>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<div style="background-color:aquamarine; min-height: 100vh; display: flex; flex-direction: column;">
+    <div style="flex: 1;">
     <div class="text-center">
-        <img class="d-block mx-auto mb-3" src="@Url.Content(ViewBag.RandomImage)" alt="" width="150" height="150">
+        <img class="d-block mx-auto mb-2" src="@Url.Content(ViewBag.RandomImage)" alt="" width="150" height="150">
         <h2>Currency Converter</h2>
         <p class="lead">
             Select the desired currency from which you want to convert, then select the one you want to convert into.
@@ -16,15 +20,14 @@
         </p>
     </div>
 
-    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
-
+   
     
-    <div class="d-flex justify-content-center">
-        <form method="post" asp-action="Convert" action="/Currency/Convert" class="text-center" style="margin-top: 20px;">
+    <div class="d-flex justify-content-center" style="flex:1;">
+        <form method="post" asp-action="Convert" action="/Currency/Convert" class="text-center" style="margin-top: 5px; max-width: 200px">
             <div class="form-group">
                 <label>From:</label>
                 <select name="fromCurrency" class="form-control">
+                    <option value=""selected disabled> </option>
                     @foreach (var currency in Model)
                     {
                         <option value="@currency.Code">@currency.Name (@currency.Code)</option>
@@ -35,6 +38,7 @@
             <div class="form-group">
                 <label>To:</label>
                 <select name="toCurrency" class="form-control">
+                    <option value="" selected disabled> </option>
                     @foreach (var currency in Model)
                     {
                         <option value="@currency.Code">@currency.Name (@currency.Code)</option>
@@ -44,35 +48,33 @@
 
             <div class="form-group">
                 <label>Amount:</label>
-                <input type="number" name="amount" step="0.01" class="form-control" required />
+                <input type="number" name="amount" step="0.01" max ="10000000000" class="form-control" required style="max-width: 100%" />
             </div>
 
             <button type="submit" class="btn btn-primary">Convert</button>
 
             @if (ViewBag.Result != null)
             {
-                <div class="mt-4">
+                <div class="mt-3" style="word-wrap: break-word;">
                     <h3>@ViewBag.Result</h3>
                 </div>
             }
         </form>
     </div>
 
-    <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+        <footer class="my-3 pt-3 text-body-secondary text-center text-small" style="position: relative; bottom: 0; width: 100%; flex-shrink: 0;">
         <p class="mb-1">© 2024 Converter by Liza</p>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
+                <li class="list-inline-item"><a href="https://www.pngwing.com/ru/free-png-plodf">Privacy</a></li>
+                <li class="list-inline-item"><a href="https://www.pngwing.com/ru/free-png-dzfxa">Terms</a></li>
+                <li class="list-inline-item"><a href="https://www.pngwing.com/ru/free-png-vqwrm">Support</a></li>
         </ul>
-    </footer>
-
-    <iframe frameborder="0" allow="clipboard-write" style="border:none;position: fixed;top: 10px;right: 10px;width:300px;height:100px;" width="300" height="100" src="https://music.yandex.ru/iframe/track/126459937/31421647">
-        Слушайте <a href='https://music.yandex.ru/album/31421647/track/126459937'>Сколько стоят деньги?</a> —
-        <a href='https://music.yandex.ru/artist/3095130'>Хаски</a> на Яндекс Музыке
-    </iframe>
+    </footer>    
 </div>
 
 <script src="~/js/bootstrap.min.js"></script>
 
-
+<iframe frameborder="0" allow="clipboard-write" style="border:none;position: fixed;top: 10px;right: 10px;width:300px;height:100px;" width="300" height="100" src="https://music.yandex.ru/iframe/track/72798711/12565211">
+    Слушайте <a href='https://music.yandex.ru/album/12565211/track/72798711'>Едет трактор</a> —
+    <a href='https://music.yandex.ru/artist/4355577' Синий трактор</a> на Яндекс Музыке
+</iframe>

@@ -54,14 +54,12 @@ namespace CurrencyConverter.Controllers
             }
 
             var convertedAmount = (amount / from.Rate) * to.Rate;
-
             var roundedAmount = Math.Round(convertedAmount, 2);
 
-            ViewBag.Result = $"{amount} {fromCurrency} = {roundedAmount.ToString("F2", System.Globalization.CultureInfo.InvariantCulture)} {toCurrency}";
+            string result = $"{amount} {fromCurrency} = {roundedAmount:F2} {toCurrency}";
 
-           
-            
-            
+
+            ViewBag.Result = result;
             ViewBag.FromCurrency = fromCurrency;
             ViewBag.ToCurrency = toCurrency;
             ViewBag.Amount = amount;

@@ -13,7 +13,8 @@ namespace CurrencyConverter.Models
                 new Currency { Code = "JPY", Name = "Japanese Yen", Rate = 110.0 }, // 1 USD = 110.0 JPY
                 new Currency { Code = "RUB", Name = "Russian Ruble", Rate = 85.0 }, // 1 USD = 85.0 RUB
                 new Currency { Code = "CNY", Name = "Chinese Yuan", Rate = 6.45 }, // 1 USD = 6.45 CNY
-                new Currency { Code = "KZT", Name = "Kazakhstani Tenge", Rate = 425.0 } // 1 USD = 425.0 KZT
+                new Currency { Code = "KZT", Name = "Kazakhstani Tenge", Rate = 425.0 }, // 1 USD = 425.0 KZT
+                new Currency { Code = "GEL", Name = "Georgian lari", Rate = 0.37 } // 1 USD = 0.37 GEL
 
             };
         }

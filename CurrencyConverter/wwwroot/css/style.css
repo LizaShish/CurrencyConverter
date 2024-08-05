@@ -1,10 +1,25 @@
-﻿body {
-    background: red;
+﻿.html, body {
+    height: 100%;
+    margin: 0;
+}
+.body {
+   
+    display: flex;
+    flex-direction: column;
 }
 
-/*Выровнять форму по центру*/
-.form-group{
-    margin-bottom: 15px;
+.main{
+    flex:1;
+}
+
+.footer {
+    background-color:brown;
+    position: fixed;
+    margin-top: 500px;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
 }
 
 /* Изменение цвета кнопки */
@@ -17,3 +32,7 @@
         background-color: #45a049; /* Более темный зеленый при наведении */
         border-color: #45a049;
     }
+/*Выровнять форму по центру*/
+.form-group {
+    margin-bottom: 15px;
+}
